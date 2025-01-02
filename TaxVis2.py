@@ -65,6 +65,11 @@ def calculate_taxes(income, brackets):
 taxes_paid, total_tax = calculate_taxes(taxable_income, tax_brackets)
 amount_kept = total_income - total_tax
 
+if total_income != 0:
+    effective_tax_rate = (total_tax / total_income)*100
+else:
+    effective_tax_rate = 0  # Or handle appropriately, e.g., log a warning
+
 # Prepare Sankey Diagram Data
 labels = ['Income', 'Deductions', 'Taxable Income']
 for tax in taxes_paid:
@@ -140,3 +145,4 @@ st.write(f"**Deductions:** ${deductions:,.2f}")
 st.write(f"**Taxable Income:** ${taxable_income:,.2f}")
 st.write(f"**Total Tax Paid:** ${total_tax:,.2f}")
 st.write(f"**Amount Kept:** ${amount_kept:,.2f}")
+st.write(f"**Effective Tax Rate:** {effective_tax_rate:,.2f}%")
