@@ -2,7 +2,9 @@
 import streamlit as st
 import plotly.graph_objects as go
 
+st.set_page_config(layout="wide")
 st.title('Tax Sankey Diagram Generator')
+
 
 # Step 1: Income Sources
 st.header('1. Enter Your Income Sources')
